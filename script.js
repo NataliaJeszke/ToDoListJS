@@ -21,6 +21,7 @@ function pushToArray(){
     checkbox.value = "value";
     checkbox.className = "id";
     
+    
     let label = document.createElement('label');
 
     label.htmlFor = "id";
@@ -36,6 +37,28 @@ function pushToArray(){
 //5. Po kliknięciu w checkboxa wykreśl taska
 
 
+  
+//////Checkbox with strike ////
+
+    let taskDone2 = document.getElementsByClassName("id");
+
+    taskDone2.addEventListener('click',()=>{
+        if(checkbox.checked){
+            let textCross = document.getElementsByClassName("label");
+
+    textCross.classList.add="cross";
+        }
+    });
+//     function taskDone(){
+//         let checkbox = document.getElementsByClassName('id');
+//   if (checkbox.checked != true)
+//   {
+//     let textCross = document.getElementsByClassName("label");
+
+//     textCross.classList.add="cross";
+//   }
+
+//     }
 
 
 

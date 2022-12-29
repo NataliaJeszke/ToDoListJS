@@ -1,12 +1,21 @@
 let task = "";
-localStorage.setItem(`List`, `${task}`);
+let listArray=[];
+
 
 function addFunction(){
     task = document.getElementById("inputTask").value;
-
+    localStorage.setItem(`List`, `${task}`);
 };
 
-const list = Object.assign({}, [`${task}`,'b','c']);
-console.log(list);
+document.getElementById("submit").addEventListener("click", pushToArray);
 
-//1. Utworzyć obiekt i dodać do niego task. Sprawdzić obiekt w konsoli.
+function pushToArray(){
+    let getFromLocal=localStorage.getItem("List")
+    listArray.push(`${getFromLocal}`);
+    console.log(listArray);
+}
+
+//2. Dodac arraya do local storage
+
+
+

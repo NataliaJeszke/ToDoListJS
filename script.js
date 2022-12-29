@@ -12,10 +12,13 @@ document.getElementById("submit").addEventListener("click", pushToArray);
 function pushToArray(){
     let getFromLocal=localStorage.getItem("List")
     listArray.push(`${getFromLocal}`);
-    console.log(listArray);
+    
+    localStorage.setItem("array", JSON.stringify(listArray));
+    let storedArray=JSON.parse(localStorage.getItem("array"));
+    console.log(storedArray);
 }
 
-//2. Dodac arraya do local storage
+//3. Wyciągnąć arraya z local storage i przekazać zawartość do html
 
 
 

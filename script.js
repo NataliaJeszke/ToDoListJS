@@ -33,7 +33,7 @@ function pushToArray(){
     console.log(storedArray.length);
 
 }
-//5. 
+//5. Po kliknięciu w checkboxa wykreśl taska
 
 
 

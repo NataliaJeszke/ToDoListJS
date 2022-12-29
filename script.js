@@ -17,10 +17,17 @@ function pushToArray(){
     let storedArray=JSON.parse(localStorage.getItem("array"));
     console.log(storedArray);
 
-    document.getElementById("arrPrint").innerHTML=storedArray;
+    const paragraph = document.createElement("p");
+    paragraph.setAttribute("class", "listParagraph");
+    const node = document.createTextNode(`${task}`);
+    paragraph.appendChild(node);
+    const element = document.getElementById("taskList")
+    element.appendChild(paragraph);
+
 }
 
 //4. Taski mają się pojawiać jeden pod drugim;
+
 
 
 

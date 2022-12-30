@@ -1,4 +1,5 @@
 let listArray=[];
+let storedArray=[];
 
 document.getElementById("submit").addEventListener("click", pushToArray);
 
@@ -8,7 +9,8 @@ function pushToArray(){
     listArray.push(`${task}`);
     
     localStorage.setItem("array", JSON.stringify(listArray));
-    let storedArray=JSON.parse(localStorage.getItem("array"));
+
+    storedArray=JSON.parse(localStorage.getItem("array"));
 
     let taskFromArray = storedArray[storedArray.length-1];
 
@@ -37,7 +39,11 @@ function pushToArray(){
 }
 //5. Resetuj listę, usuń z local storage z buttonem "reset"
 
-
+function resetFunction(){
+    storedArray=JSON.parse(localStorage.getItem("array"));
+    storedArray.length = 0;
+    localStorage.setItem("array", JSON.stringify(storedArray));
+}
 
 
 

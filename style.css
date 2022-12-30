@@ -2,6 +2,6 @@
     color: green;
 }
 
-.cross{
-    background-color: aqua;
-}
+:checked + label {
+    text-decoration: line-through;
+ }

@@ -20,12 +20,13 @@ function pushToArray(){
     checkbox.name = "name";
     checkbox.value = "value";
     checkbox.className = "id";
-    
-    
+    checkbox.checked=false;
+
+
     let label = document.createElement('label');
 
     label.htmlFor = "id";
-    label.className="label"
+    label.className="label";
     label.innerHTML=`${taskFromArray} <br/>`;
     
     myTaskList.appendChild(checkbox);
@@ -34,31 +35,10 @@ function pushToArray(){
     console.log(storedArray.length);
 
 }
-//5. Po kliknięciu w checkboxa wykreśl taska
+//5. Resetuj listę, usuń z local storage z buttonem "reset"
 
 
-  
-//////Checkbox with strike ////
 
-    let taskDone2 = document.getElementsByClassName("id");
-
-    taskDone2.addEventListener('click',()=>{
-        if(checkbox.checked){
-            let textCross = document.getElementsByClassName("label");
-
-    textCross.classList.add="cross";
-        }
-    });
-//     function taskDone(){
-//         let checkbox = document.getElementsByClassName('id');
-//   if (checkbox.checked != true)
-//   {
-//     let textCross = document.getElementsByClassName("label");
-
-//     textCross.classList.add="cross";
-//   }
-
-//     }
 
 
 

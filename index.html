@@ -16,8 +16,6 @@
       <h2>Tasks</h2>
       <h3>Counter 0/0</h3>
       <section>
-        <!-- <input type="checkbox" id="task" name="task" />
-        <label for="task">This is your task number one</label><br /> -->
         <div id="taskList"></div>
       </section>
       <br />
@@ -25,7 +23,14 @@
         <label for="task">Write down your task:</label>
         <input type="text" id="inputTask" name="inputTask" /><br /><br />
         <button id="submit" type="submit" value="Add Task">Add Task</button>
-        <button type="reset" value="Reset" onclick="resetFunction()">Reset</button>
+        <button
+          type="reset"
+          value="Reset"
+          id="resetBtn"
+          onclick="resetFunction()"
+        >
+          Reset
+        </button>
       </section>
     </main>
     <footer></footer>

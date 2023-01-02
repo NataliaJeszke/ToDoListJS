@@ -36,13 +36,16 @@ function pushToArray(){
     
     console.log(storedArray.length);
 
+
 }
 //5. Resetuj listę, usuń z local storage z buttonem "reset"
+
 
 function resetFunction(){
     storedArray=JSON.parse(localStorage.getItem("array"));
     storedArray.length = 0;
     localStorage.setItem("array", JSON.stringify(storedArray));
+    document.location.reload();
 }
 
 

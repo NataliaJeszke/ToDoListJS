@@ -38,8 +38,8 @@ function pushToArray(){
 
 
 }
-//5. Resetuj listę, usuń z local storage z buttonem "reset"
 
+//5. Zapamiętanie strony po odswieżeniu przeglądarki. Zmiana zachowania reset button.
 
 function resetFunction(){
     storedArray=JSON.parse(localStorage.getItem("array"));

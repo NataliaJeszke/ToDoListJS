@@ -40,12 +40,17 @@ function addTaskToList(){
     myTaskList.appendChild(label);
     
     console.log(storedArray.length);
+    saveList();
 
 }
 
 function saveList(){
-    let myTaskList = document.getElementById("taskList");
+    const tasksCheckboxes = document.querySelectorAll("checkbox");
+    for (let i=0; i<tasksCheckboxes.length; i++){
+        console.log(tasksCheckboxes[i]);
+    }
 }
+
 
 //Function RESET for button "Reset".-> Removes tasks from local storage, reloads page.
 

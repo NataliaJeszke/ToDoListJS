@@ -7,8 +7,15 @@ document.getElementById("submit").addEventListener("click", pushToArray);
 //Function that pushes elements into the array and sends array to local storage. Also displays tasks in a div with id "taskList".
 function pushToArray(){
     // let getFromLocal=localStorage.getItem("Task")
-    task = document.getElementById("inputTask").value;
-    listArray.push(`${task}`);
+
+    // task = document.getElementById("inputTask").value;
+    // listArray.push(`${task}`);
+
+    task = {
+        "titleTask": document.getElementById("inputTask").value,
+        "isDone": false
+    }
+    listArray.push(task)
     
     localStorage.setItem("array", JSON.stringify(listArray));
 
@@ -31,7 +38,7 @@ function pushToArray(){
 
     label.htmlFor = "id";
     label.className="label";
-    label.innerHTML=`${taskFromArray} <br/>`;
+    label.innerHTML=`${taskFromArray.titleTask} <br/>`;
     
     myTaskList.appendChild(checkbox);
     myTaskList.appendChild(label);
@@ -67,14 +74,19 @@ window.onload = function(){
     checkbox.name = "name";
     checkbox.value = "value";
     checkbox.className = "id";
-    checkbox.checked=false;
+
+    if(taskFromArray.isDone === true){
+        checkbox.checked=true;
+    } else {
+        checkbox.checked=false;
+    }
 
 
     let label = document.createElement('label');
 
     label.htmlFor = "id";
     label.className="label";
-    label.innerHTML=`${taskFromArray} <br/>`;
+    label.innerHTML=`${taskFromArray.titleTask} <br/>`;
     
     myTaskList.appendChild(checkbox);
     myTaskList.appendChild(label);
@@ -86,5 +98,7 @@ window.onload = function(){
 }
 
 
+//6. utworzyć obiekty w array'u czyli taski z wartością string i boolean (odhaczony task, nieodhaczony task). Podmienić do powyższych funkcji.
 
+//7. Wyświetlić na refresh taski zrobione i te które są do zrobienia.
 

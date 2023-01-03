@@ -1,15 +1,11 @@
 let listArray=[];
 let storedArray=[];
 
-document.getElementById("submit").addEventListener("click", pushToArray);
+document.getElementById("submit").addEventListener("click", addTaskToList);
 
 
 //Function that pushes elements into the array and sends array to local storage. Also displays tasks in a div with id "taskList".
-function pushToArray(){
-    // let getFromLocal=localStorage.getItem("Task")
-
-    // task = document.getElementById("inputTask").value;
-    // listArray.push(`${task}`);
+function addTaskToList(){
 
     task = {
         "titleTask": document.getElementById("inputTask").value,
@@ -66,30 +62,30 @@ window.onload = function(){
         for (i=0; i<storedArray.length; i++){
             taskFromArray= storedArray[i];
     
-    let myTaskList = document.getElementById("taskList");
-         
-    let checkbox = document.createElement('input');
- 
-    checkbox.type = "checkbox";
-    checkbox.name = "name";
-    checkbox.value = "value";
-    checkbox.className = "id";
-
-    if(taskFromArray.isDone === true){
-        checkbox.checked=true;
-    } else {
-        checkbox.checked=false;
-    }
-
-
-    let label = document.createElement('label');
-
-    label.htmlFor = "id";
-    label.className="label";
-    label.innerHTML=`${taskFromArray.titleTask} <br/>`;
+            let myTaskList = document.getElementById("taskList");
+            
+            let checkbox = document.createElement('input');
     
-    myTaskList.appendChild(checkbox);
-    myTaskList.appendChild(label);
+            checkbox.type = "checkbox";
+            checkbox.name = "name";
+            checkbox.value = "value";
+            checkbox.className = "id";
+
+            if(taskFromArray.isDone === true){
+                checkbox.checked=true;
+            } else {
+                checkbox.checked=false;
+            }
+
+
+            let label = document.createElement('label');
+
+            label.htmlFor = "id";
+            label.className="label";
+            label.innerHTML=`${taskFromArray.titleTask} <br/>`;
+            
+            myTaskList.appendChild(checkbox);
+            myTaskList.appendChild(label);
         }
 
     }
@@ -98,7 +94,4 @@ window.onload = function(){
 }
 
 
-//6. utworzyć obiekty w array'u czyli taski z wartością string i boolean (odhaczony task, nieodhaczony task). Podmienić do powyższych funkcji.
-
-//7. Wyświetlić na refresh taski zrobione i te które są do zrobienia.
-
+//8. 1. Kliknięcie checkboxa/dodanie taska, 2. loop przejście po wszystkich elementach listy tasków i zrobienie na tej podstawie arraya, 3. zapisanie arraya do localstorage, 4. na onload na podstawie arraya wygenerować listę.

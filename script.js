@@ -7,17 +7,17 @@ document.getElementById("submit").addEventListener("click", addTaskToList);
 //Function that pushes elements into the array and sends array to local storage. Also displays tasks in a div with id "taskList".
 function addTaskToList(){
 
-    task = {
-        "titleTask": document.getElementById("inputTask").value,
-        "isDone": false
-    }
-    listArray.push(task)
+    // task = {
+    //     "titleTask": document.getElementById("inputTask").value,
+    //     "isDone": false
+    // }
+    // listArray.push(task)
     
-    localStorage.setItem("array", JSON.stringify(listArray));
+    // localStorage.setItem("array", JSON.stringify(listArray));
 
-    storedArray=JSON.parse(localStorage.getItem("array"));
+    // storedArray=JSON.parse(localStorage.getItem("array"));
 
-    let taskFromArray = storedArray[storedArray.length-1];
+    // let taskFromArray = storedArray[storedArray.length-1];
 
     let myTaskList = document.getElementById("taskList");
          
@@ -29,18 +29,22 @@ function addTaskToList(){
     checkbox.className = "id";
     checkbox.checked=false;
 
-
+    let taskName = document.getElementById("inputTask").value;
     let label = document.createElement('label');
 
     label.htmlFor = "id";
     label.className="label";
-    label.innerHTML=`${taskFromArray.titleTask} <br/>`;
+    label.innerHTML=`${taskName} <br/>`;
     
     myTaskList.appendChild(checkbox);
     myTaskList.appendChild(label);
     
     console.log(storedArray.length);
 
+}
+
+function saveList(){
+    let myTaskList = document.getElementById("taskList");
 }
 
 //Function RESET for button "Reset".-> Removes tasks from local storage, reloads page.

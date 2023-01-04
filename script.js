@@ -1,24 +1,11 @@
-let listArray=[];
-let storedArray=[];
+// let storedArray=[];
 
 
 document.getElementById("submit").addEventListener("click", addTaskToList);
 
 
-//Function that pushes elements into the array and sends array to local storage. Also displays tasks in a div with id "taskList".
+//Function that creates elements - tasks in HTML
 function addTaskToList(){
-
-    // task = {
-    //     "titleTask": document.getElementById("inputTask").value,
-    //     "isDone": false
-    // }
-    // listArray.push(task)
-    
-    // localStorage.setItem("array", JSON.stringify(listArray));
-
-    // storedArray=JSON.parse(localStorage.getItem("array"));
-
-    // let taskFromArray = storedArray[storedArray.length-1];
 
     let myTaskList = document.getElementById("taskList");
          
@@ -39,14 +26,18 @@ function addTaskToList(){
     
     myTaskList.appendChild(checkbox);
     myTaskList.appendChild(label);
+
+
     
     saveList();
-    console.log(listArray);
-
 
 }
 
+//Function that loops through elements of DOM (checboxes) and creating objects with two elements that is pushed into the array. 
 function saveList(){
+    
+    let listArray=[];
+    
     let elements =document.getElementsByClassName("id");
     for(i=0; i<elements.length; i++){
         let isDone = false;
@@ -62,14 +53,18 @@ function saveList(){
             "isDone": isDone
         };
         listArray.push(task);
+        localStorage.setItem("array", JSON.stringify(listArray));
+        console.log(listArray);
     }
 }
+
 
 
 //Function RESET for button "Reset".-> Removes tasks from local storage, reloads page.
 
 function resetFunction(){
-    storedArray=JSON.parse(localStorage.getItem("array"));
+    
+    let storedArray=JSON.parse(localStorage.getItem("array"));
     storedArray.length = 0;
     localStorage.setItem("array", JSON.stringify(storedArray));
     document.location.reload();
@@ -78,7 +73,7 @@ function resetFunction(){
 //Function that shows tasks saved in local storage.
 
 window.onload = function(){
-    storedArray=JSON.parse(localStorage.getItem("array"));
+   let storedArray=JSON.parse(localStorage.getItem("array"));
 
     function loopArray(){
         let taskFromArray="";
@@ -105,16 +100,22 @@ window.onload = function(){
 
             label.htmlFor = "id";
             label.className="label";
-            label.innerHTML=`${taskFromArray.titleTask} <br/>`;
+            label.innerHTML=`${taskFromArray.taskName} <br/>`;
             
             myTaskList.appendChild(checkbox);
             myTaskList.appendChild(label);
         }
 
+        //Do poprawienia
+        let elements =document.getElementsByClassName("id");
+
+        for(i=0; i<elements.length; i++){
+            elements[i].addEventListener("click", saveList)
+        }
     }
 
     loopArray();
 }
 
 
-//8. 1. Kliknięcie checkboxa/dodanie taska, 2. loop przejście po wszystkich elementach listy tasków i zrobienie na tej podstawie arraya, 3. zapisanie arraya do localstorage, 4. na onload na podstawie arraya wygenerować listę.
+//8. 

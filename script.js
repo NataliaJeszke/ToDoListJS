@@ -54,8 +54,8 @@ function saveList(){
             isDone= true;
         }
         
-        let NameName = document.getElementsByClassName("label");
-        let taskName = NameName[i].textContent;
+        let taskContent = document.getElementsByClassName("label");
+        let taskName = taskContent[i].textContent;
 
         let task = {
             "taskName":`${taskName}`,

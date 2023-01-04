@@ -1,6 +1,7 @@
 let listArray=[];
 let storedArray=[];
 
+
 document.getElementById("submit").addEventListener("click", addTaskToList);
 
 
@@ -39,15 +40,28 @@ function addTaskToList(){
     myTaskList.appendChild(checkbox);
     myTaskList.appendChild(label);
     
-    console.log(storedArray.length);
     saveList();
+    console.log(listArray);
+
 
 }
 
 function saveList(){
-    const tasksCheckboxes = document.querySelectorAll("checkbox");
-    for (let i=0; i<tasksCheckboxes.length; i++){
-        console.log(tasksCheckboxes[i]);
+    let elements =document.getElementsByClassName("id");
+    for(i=0; i<elements.length; i++){
+        let isDone = false;
+        if (elements[i].checked === true) {
+            isDone= true;
+        }
+        
+        let NameName = document.getElementsByClassName("label");
+        let taskName = NameName[i].textContent;
+
+        let task = {
+            "taskName":`${taskName}`,
+            "isDone": isDone
+        };
+        listArray.push(task);
     }
 }
 

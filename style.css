@@ -5,3 +5,8 @@
 :checked + label {
     text-decoration: line-through;
  }
+
+ .counterContainer{
+    display: flex;
+    
+ }

@@ -81,7 +81,6 @@ function doneTasksCounter() {
   document.querySelector(".tasksDone").innerHTML = `${doneTasks}`;
 }
 
-
 //Function RESET for button "Reset".-> Removes tasks from local storage, reloads page.
 
 function resetFunction() {
@@ -91,7 +90,7 @@ function resetFunction() {
   document.location.reload();
 }
 
-//Function that shows tasks saved in local storage.
+//Function that shows tasks saved in local storage after refresh page.
 
 window.onload = function () {
   let storedArray = JSON.parse(localStorage.getItem("array"));

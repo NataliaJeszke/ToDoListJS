@@ -26,12 +26,20 @@ function addTaskToList(){
     
     myTaskList.appendChild(checkbox);
     myTaskList.appendChild(label);
-
-
     
     saveList();
 
+    function addEventListenerToCheckbox(){
+       let elements= document.getElementsByClassName("id")
+        for(i=0; i<elements.length; i++){
+            elements[i].addEventListener("click", saveList)
+        }
+    }
+    addEventListenerToCheckbox();
+
 }
+
+
 
 //Function that loops through elements of DOM (checboxes) and creating objects with two elements that is pushed into the array. 
 function saveList(){

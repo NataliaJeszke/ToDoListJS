@@ -22,11 +22,20 @@ function addTaskToList() {
   myTaskList.appendChild(checkbox);
   myTaskList.appendChild(label);
 
-  let tasksToDo = 
+  function tasksCounter() {
+    let elementsOfTaskList = document.getElementById("taskList");
+    let numberOfElements =
+      elementsOfTaskList.getElementsByTagName("label").length;
+    
+      document.getElementsByClassName("tasksToDo").value = `${numberOfElements}`
+    console.log(numberOfElements);
+  }
 
   saveList();
 
   addEventListenerToCheckbox();
+
+  tasksCounter();
 }
 
 //Function that loops through elements of DOM (checboxes) and creating objects with two elements that is pushed into the array.
@@ -60,9 +69,7 @@ function addEventListenerToCheckbox() {
   }
 }
 
-function taskCounter(){
-
-}
+function taskCounter() {}
 
 //Function RESET for button "Reset".-> Removes tasks from local storage, reloads page.
 

@@ -1,7 +1,3 @@
-.label{
-    color: green;
-}
-
 :checked + label {
     text-decoration: line-through;
  }

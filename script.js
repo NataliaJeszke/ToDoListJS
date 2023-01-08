@@ -1,5 +1,7 @@
 document.getElementById("submit").addEventListener("click", addTaskToList);
 
+document.getElementById("resetBtn").addEventListener("click", resetFunction);
+
 //Function that creates elements - tasks in HTML
 function addTaskToList() {
   let myTaskList = document.getElementById("taskList");

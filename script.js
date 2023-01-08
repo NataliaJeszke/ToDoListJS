@@ -54,6 +54,7 @@ function saveList() {
     localStorage.setItem("array", JSON.stringify(listArray));
     console.log(listArray);
   }
+  doneTasksCounter();
 }
 
 function addEventListenerToCheckbox() {
@@ -76,11 +77,6 @@ function doneTasksCounter() {
   let storedArray = JSON.parse(localStorage.getItem("array"));
   let result = storedArray.map(({ isDone }) => isDone);
   let doneTasks = result.filter((done) => done === true).length;
-
-  let elements = document.getElementsByClassName("id");
-  for (i = 0; i < elements.length; i++) {
-    elements[i].addEventListener("click", doneTasksCounter);
-  }
 
   document.querySelector(".tasksDone").innerHTML = `${doneTasks}`;
 }

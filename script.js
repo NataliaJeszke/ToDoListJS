@@ -1,6 +1,3 @@
-// let storedArray=[];
-
-
 document.getElementById("submit").addEventListener("click", addTaskToList);
 
 
@@ -29,12 +26,6 @@ function addTaskToList(){
     
     saveList();
 
-    function addEventListenerToCheckbox(){
-       let elements= document.getElementsByClassName("id")
-        for(i=0; i<elements.length; i++){
-            elements[i].addEventListener("click", saveList)
-        }
-    }
     addEventListenerToCheckbox();
 
 }
@@ -65,6 +56,15 @@ function saveList(){
         console.log(listArray);
     }
 }
+
+function addEventListenerToCheckbox(){
+    let elements= document.getElementsByClassName("id")
+     for(i=0; i<elements.length; i++){
+         elements[i].addEventListener("click", saveList)
+     }
+ }
+
+
 
 
 
@@ -114,16 +114,11 @@ window.onload = function(){
             myTaskList.appendChild(label);
         }
 
-        //Do poprawienia
-        let elements =document.getElementsByClassName("id");
-
-        for(i=0; i<elements.length; i++){
-            elements[i].addEventListener("click", saveList)
-        }
+       
     }
 
     loopArray();
+
+    addEventListenerToCheckbox();
 }
 
-
-//8. 

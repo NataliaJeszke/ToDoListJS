@@ -22,15 +22,6 @@ function addTaskToList() {
   myTaskList.appendChild(checkbox);
   myTaskList.appendChild(label);
 
-  function tasksCounter() {
-    let elementsOfTaskList = document.getElementById("taskList");
-    let numberOfElements =
-      elementsOfTaskList.getElementsByTagName("label").length;
-    
-      document.getElementsByClassName("tasksToDo").value = `${numberOfElements}`
-    console.log(numberOfElements);
-  }
-
   saveList();
 
   addEventListenerToCheckbox();
@@ -38,7 +29,7 @@ function addTaskToList() {
   tasksCounter();
 }
 
-//Function that loops through elements of DOM (checboxes) and creating objects with two elements that is pushed into the array.
+//Function that loops through elements of DOM (checboxes) and creating objects with two elements that is pushed into the array and stored in local storage.
 function saveList() {
   let listArray = [];
 
@@ -69,7 +60,13 @@ function addEventListenerToCheckbox() {
   }
 }
 
-function taskCounter() {}
+//Function that counts children of div with id "taskList"
+function tasksCounter() {
+  let elementsOfTaskList = document.getElementById("taskList");
+  let numberOfElements =
+    elementsOfTaskList.getElementsByTagName("label").length;
+    document.querySelector(".tasksToDo").innerHTML = `${numberOfElements}`;
+}
 
 //Function RESET for button "Reset".-> Removes tasks from local storage, reloads page.
 
@@ -119,4 +116,6 @@ window.onload = function () {
   loopArray();
 
   addEventListenerToCheckbox();
+
+  tasksCounter();
 };

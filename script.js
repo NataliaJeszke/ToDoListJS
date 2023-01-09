@@ -1,38 +1,39 @@
+// EventListeners for buttons
 document.getElementById("submit").addEventListener("click", addTaskToList);
-
 document.addEventListener("keydown", (e) => {
   if (e.key === "Enter") {
     addTaskToList();
   }
 });
-
 document.getElementById("resetBtn").addEventListener("click", resetFunction);
+
+// Variables for DOM elements
+const $myTaskList = document.getElementById("taskList");
+
 
 //Function that creates elements - tasks in HTML
 function addTaskToList() {
-  let myTaskList = document.getElementById("taskList");
-
   let checkbox = document.createElement("input");
 
   let taskName = document.getElementById("inputTask").value;
   let label = document.createElement("label");
 
-  if(taskName !== ""){
-  checkbox.type = "checkbox";
-  checkbox.name = "name";
-  checkbox.value = "value";
-  checkbox.className = "id";
-  checkbox.checked = false;
+  if (taskName !== "") {
+    checkbox.type = "checkbox";
+    checkbox.name = "name";
+    checkbox.value = "value";
+    checkbox.className = "id";
+    checkbox.checked = false;
 
-  label.htmlFor = "id";
-  label.className = "label";
-  label.innerHTML = `${taskName} <br/>`;
+    label.htmlFor = "id";
+    label.className = "label";
+    label.innerHTML = `${taskName} <br/>`;
 
-  myTaskList.appendChild(checkbox);
-  myTaskList.appendChild(label);
+    $myTaskList.appendChild(checkbox);
+    $myTaskList.appendChild(label);
   }
 
-  if (taskName === ""){
+  if (taskName === "") {
     alert("can't add empty task");
   }
 
@@ -78,9 +79,7 @@ function addEventListenerToCheckbox() {
 
 //Function that counts children of div with id "taskList"
 function tasksCounter() {
-  let elementsOfTaskList = document.getElementById("taskList");
-  let numberOfElements =
-    elementsOfTaskList.getElementsByTagName("label").length;
+  let numberOfElements = $myTaskList.getElementsByTagName("label").length;
   document.querySelector(".tasksToDo").innerHTML = `${numberOfElements}`;
 }
 
@@ -90,7 +89,7 @@ function doneTasksCounter() {
   let result = storedArray.map(({ isDone }) => isDone);
   let doneTasks = result.filter((done) => done === true).length;
 
-  document.querySelector(".tasksDone").innerHTML ='&nbsp'+ `${doneTasks}`;
+  document.querySelector(".tasksDone").innerHTML = "&nbsp" + `${doneTasks}`;
 }
 
 //Function RESET for button "Reset".-> Removes tasks from local storage, reloads page.
@@ -112,8 +111,6 @@ window.onload = function () {
     for (i = 0; i < storedArray.length; i++) {
       taskFromArray = storedArray[i];
 
-      let myTaskList = document.getElementById("taskList");
-
       let checkbox = document.createElement("input");
 
       checkbox.type = "checkbox";
@@ -133,8 +130,8 @@ window.onload = function () {
       label.className = "label";
       label.innerHTML = `${taskFromArray.taskName} <br/>`;
 
-      myTaskList.appendChild(checkbox);
-      myTaskList.appendChild(label);
+      $myTaskList.appendChild(checkbox);
+      $myTaskList.appendChild(label);
     }
   }
 

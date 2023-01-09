@@ -70,19 +70,20 @@ function saveList() {
   doneTasksCounter();
 }
 
+//Function that adds EventListeners to all checkboxes
 function addEventListenerToCheckbox() {
   for (i = 0; i < $elements.length; i++) {
     $elements[i].addEventListener("click", saveList);
   }
 }
 
-//Function that counts children of div with id "taskList"
+//Function that counts children of div with id "taskList" and shows number of all tasks
 function tasksCounter() {
   let numberOfElements = $myTaskList.getElementsByTagName("label").length;
   document.querySelector(".tasksToDo").innerHTML = `${numberOfElements}`;
 }
 
-//Function gets array from local storage, finds "isDone" property and checks how many values "true" is in property "isDone", all with event listener for checkboxes.
+//Function gets array from local storage, finds "isDone" property and checks how many values "true" is in property "isDone".
 function doneTasksCounter() {
   let storedArray = JSON.parse(localStorage.getItem("array"));
   let result = storedArray.map(({ isDone }) => isDone);

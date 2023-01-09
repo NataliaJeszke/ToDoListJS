@@ -9,7 +9,7 @@ document.getElementById("resetBtn").addEventListener("click", resetFunction);
 
 // Variables for DOM elements
 const $myTaskList = document.getElementById("taskList");
-
+const $elements = document.getElementsByClassName("id");
 
 //Function that creates elements - tasks in HTML
 function addTaskToList() {
@@ -49,10 +49,9 @@ function addTaskToList() {
 function saveList() {
   let listArray = [];
 
-  let elements = document.getElementsByClassName("id");
-  for (i = 0; i < elements.length; i++) {
+  for (i = 0; i < $elements.length; i++) {
     let isDone = false;
-    if (elements[i].checked === true) {
+    if ($elements[i].checked === true) {
       isDone = true;
     }
 
@@ -71,9 +70,8 @@ function saveList() {
 }
 
 function addEventListenerToCheckbox() {
-  let elements = document.getElementsByClassName("id");
-  for (i = 0; i < elements.length; i++) {
-    elements[i].addEventListener("click", saveList);
+  for (i = 0; i < $elements.length; i++) {
+    $elements[i].addEventListener("click", saveList);
   }
 }
 

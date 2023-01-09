@@ -83,7 +83,7 @@ function tasksCounter() {
   document.querySelector(".tasksToDo").innerHTML = `${numberOfElements}`;
 }
 
-//Function gets array from local storage, finds "isDone" property and checks how many values "true" is in property "isDone".
+//Function gets array from local storage, finds "isDone" property and checks how many values "true" is in property "isDone". This function is added to saveList() with addEventListinerToCheckbox() so is enabled everytime checkbox is clicked.
 function doneTasksCounter() {
   let storedArray = JSON.parse(localStorage.getItem("array"));
   let result = storedArray.map(({ isDone }) => isDone);

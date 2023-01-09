@@ -10,6 +10,7 @@ document.getElementById("resetBtn").addEventListener("click", resetFunction);
 // Variables for DOM elements
 const $myTaskList = document.getElementById("taskList");
 const $elements = document.getElementsByClassName("id");
+const $taskContent = document.getElementsByClassName("label");
 
 //Function that creates elements - tasks in HTML
 function addTaskToList() {
@@ -48,15 +49,13 @@ function addTaskToList() {
 //Function that loops through elements of DOM (checboxes) and creating objects with two elements that is pushed into the array and stored in local storage.
 function saveList() {
   let listArray = [];
-
   for (i = 0; i < $elements.length; i++) {
     let isDone = false;
     if ($elements[i].checked === true) {
       isDone = true;
     }
 
-    let taskContent = document.getElementsByClassName("label");
-    let taskName = taskContent[i].textContent;
+    let taskName = $taskContent[i].textContent;
 
     let task = {
       taskName: `${taskName}`,

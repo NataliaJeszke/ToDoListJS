@@ -11,6 +11,8 @@ document.getElementById("resetBtn").addEventListener("click", resetFunction);
 const $myTaskList = document.getElementById("taskList");
 const $elements = document.getElementsByClassName("id");
 const $taskContent = document.getElementsByClassName("label");
+// Variable for array of objects from local storage
+const $storedArray = JSON.parse(localStorage.getItem("array"));
 
 //Function that creates elements - tasks in HTML
 function addTaskToList() {
@@ -92,21 +94,18 @@ function doneTasksCounter() {
 //Function RESET for button "Reset".-> Removes tasks from local storage, reloads page.
 
 function resetFunction() {
-  let storedArray = JSON.parse(localStorage.getItem("array"));
-  storedArray.length = 0;
-  localStorage.setItem("array", JSON.stringify(storedArray));
+  $storedArray.length = 0;
+  localStorage.setItem("array", JSON.stringify($storedArray));
   document.location.reload();
 }
 
 //Function that shows tasks saved in local storage after refresh page.
 
 window.onload = function () {
-  let storedArray = JSON.parse(localStorage.getItem("array"));
-
   function loopArray() {
     let taskFromArray = "";
-    for (i = 0; i < storedArray.length; i++) {
-      taskFromArray = storedArray[i];
+    for (i = 0; i < $storedArray.length; i++) {
+      taskFromArray = $storedArray[i];
 
       let checkbox = document.createElement("input");
 

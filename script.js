@@ -32,8 +32,7 @@ function addTaskToList() {
     label.className = "label";
     label.innerHTML = `${taskName} <br/>`;
 
-    $myTaskList.appendChild(checkbox);
-    $myTaskList.appendChild(label);
+    $myTaskList.append(checkbox, label);
   }
 
   if (taskName === "") {
@@ -124,8 +123,7 @@ window.onload = function () {
     label.className = "label";
     label.innerHTML = `${taskFromArray.taskName} <br/>`;
 
-    $myTaskList.appendChild(checkbox, label);
-    $myTaskList.appendChild(label);
+    $myTaskList.append(checkbox, label);
   }
 
   addEventListenerToCheckbox();

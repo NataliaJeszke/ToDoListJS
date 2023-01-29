@@ -76,7 +76,7 @@ function addEventListenerToCheckbox() {
 
 //Function that counts children of div with id "taskList" and shows number of all tasks
 function tasksCounter() {
-  let numberOfElements = $myTaskList.getElementsByTagName("label").length;
+  let numberOfElements = $myTaskList.getElementsByClassName("element").length;
   document.querySelector(".tasksToDo").innerHTML = `${numberOfElements}`;
 }
 
